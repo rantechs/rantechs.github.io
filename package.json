@@ -1,0 +1,13 @@
+{
+  "name": "rantechs-showcase",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "RanTechs portfolio & engineering showcase (GitHub Pages).",
+  "scripts": {
+    "gen": "node scripts/gen-cards.mjs"
+  },
+  "devDependencies": {
+    "js-yaml": "^4.1.0"
+  }
+}

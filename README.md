@@ -3,7 +3,7 @@
 The public showcase site for **Imran Technologies Ltd (RanTechs)**, served via **GitHub Pages**.
 It hosts the portfolio landing page and a case-study / report page per project.
 
-> Live: https://rantechs.github.io  *(optional future custom domain: `projects.rantechs.com`)*
+> Live: **https://work.rantechs.com**  (also reachable via `rantechs.github.io`, which redirects here)
 
 ## Structure
 ```

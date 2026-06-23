@@ -1,0 +1,41 @@
+name: Build portfolio
+
+# Regenerate the landing-page project cards whenever the metadata or generator changes.
+# Commits the updated index.html back to main (only if it actually changed).
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'data/projects.yml'
+      - 'scripts/gen-cards.mjs'
+      - 'package.json'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: build-portfolio
+  cancel-in-progress: true
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+      - run: npm ci || npm install
+      - run: npm run gen
+      - name: Commit if changed
+        run: |
+          if [ -n "$(git status --porcelain index.html)" ]; then
+            git config user.name  "github-actions[bot]"
+            git config user.email "github-actions[bot]@users.noreply.github.com"
+            git add index.html
+            git commit -m "chore: regenerate portfolio cards from projects.yml [skip ci]"
+            git push
+          else
+            echo "No changes to index.html."
+          fi

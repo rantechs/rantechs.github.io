@@ -1,30 +1,35 @@
 # RanTechs portfolio — single source of truth.
-# Add a project here; the showcase site and the org README (via automation, later)
-# are generated from this file. Keep slugs stable and lowercase-kebab.
+# Edit this file to add/update a project; the showcase landing (index.html) and the
+# org profile README (rantechs/.github) are regenerated from it by GitHub Actions.
+# Keep slugs stable and lowercase-kebab.
 #
 # Fields:
-#   slug        unique id / folder name under /projects/
-#   name        display name
-#   tagline     one line
-#   client      client/owner (optional)
-#   category    Client Website | Internal Product | Open Source | Case Study
-#   repo        owner/name (shown even if private; see repo_public)
-#   repo_public true|false  -> drives the Private indicator
-#   production  live URL (optional)
-#   hosting     deployment platform label (e.g. AWS CloudFront, Vercel, Netlify)
-#   stack       list of technologies
-#   case_study  URL of the published report/case study (Pages)
-#   status      Production | In Development | Maintained | Archived
-#   featured    true|false  -> shown in the README featured set
+#   slug         unique id / folder name under /projects/
+#   name         display name
+#   tagline      short italic line shown next to the name
+#   summary      one-sentence description shown in the card body
+#   client       client/owner (optional)
+#   category     Client Website | Internal Product | Open Source | Case Study
+#   repo         owner/name (shown even if private; see repo_public)
+#   repo_public  true|false  -> drives the Private/Source indicator
+#   ci_workflow  workflow file name (optional) -> renders a live CI Deploy badge
+#   production   live URL (optional)
+#   hosting      deployment platform label (e.g. AWS CloudFront, Vercel, Netlify, GitHub Pages)
+#   stack        list of technologies
+#   case_study   path/URL of the published report (relative to the showcase site root)
+#   status       Production | In Development | Maintained | Archived
+#   featured     true|false  -> included in the org README featured set
 
 projects:
   - slug: manjuma-group
     name: MANJUMA GROUP
-    tagline: Corporate website for a diversified Malaysian business group
+    tagline: Diversified Malaysian business group
+    summary: A fast, accessible, search-ready corporate website — a perfect 100/100/100/100 on Google Lighthouse.
     client: Manjuma Holdings Sdn Bhd
     category: Client Website
     repo: rantechs/manjumagroup.com
     repo_public: false
+    ci_workflow: deploy.yml
     production: https://manjumagroup.com
     hosting: AWS CloudFront
     stack: [Astro, TypeScript, AWS]
