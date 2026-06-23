@@ -1,0 +1,33 @@
+# RanTechs portfolio — single source of truth.
+# Add a project here; the showcase site and the org README (via automation, later)
+# are generated from this file. Keep slugs stable and lowercase-kebab.
+#
+# Fields:
+#   slug        unique id / folder name under /projects/
+#   name        display name
+#   tagline     one line
+#   client      client/owner (optional)
+#   category    Client Website | Internal Product | Open Source | Case Study
+#   repo        owner/name (shown even if private; see repo_public)
+#   repo_public true|false  -> drives the Private indicator
+#   production  live URL (optional)
+#   hosting     deployment platform label (e.g. AWS CloudFront, Vercel, Netlify)
+#   stack       list of technologies
+#   case_study  URL of the published report/case study (Pages)
+#   status      Production | In Development | Maintained | Archived
+#   featured    true|false  -> shown in the README featured set
+
+projects:
+  - slug: manjuma-group
+    name: MANJUMA GROUP
+    tagline: Corporate website for a diversified Malaysian business group
+    client: Manjuma Holdings Sdn Bhd
+    category: Client Website
+    repo: rantechs/manjumagroup.com
+    repo_public: false
+    production: https://manjumagroup.com
+    hosting: AWS CloudFront
+    stack: [Astro, TypeScript, AWS]
+    case_study: /projects/manjuma-group/
+    status: Production
+    featured: true

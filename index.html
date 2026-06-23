@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>RanTechs — Software Portfolio &amp; Engineering Showcase</title>
+<meta name="description" content="Imran Technologies Ltd (RanTechs) — software portfolio, client websites, and engineering case studies. Software that goes the distance." />
+<meta property="og:title" content="RanTechs — Software Portfolio" />
+<meta property="og:description" content="Client websites and engineering case studies from Imran Technologies Ltd." />
+<meta property="og:type" content="website" />
+<style>
+  :root{
+    --bg:#0b0d12; --bg2:#11141b; --panel:#161a23; --panel2:#1c2230;
+    --line:#262c3a; --text:#e7e9ee; --muted:#9aa3b2; --muted2:#6b7384;
+    --accent:#5b8cff; --accent2:#7c5cff; --ok:#2ea043; --amber:#d29922;
+    --font:"Segoe UI",system-ui,-apple-system,Roboto,Helvetica,Arial,sans-serif;
+    --maxw:1080px; --radius:16px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;font-family:var(--font);background:var(--bg);color:var(--text);line-height:1.65;-webkit-font-smoothing:antialiased}
+  a{color:var(--accent);text-decoration:none}
+  a:hover{text-decoration:underline}
+  h1,h2,h3{line-height:1.15;letter-spacing:-.02em;margin:0 0 .5em}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 clamp(1.1rem,4vw,2rem)}
+  .muted{color:var(--muted)}
+  .kick{display:inline-flex;align-items:center;gap:.5rem;color:var(--accent);font-weight:700;font-size:.74rem;letter-spacing:.18em;text-transform:uppercase}
+  .kick::before{content:"";width:24px;height:2px;background:linear-gradient(90deg,var(--accent),var(--accent2))}
+
+  /* top bar */
+  .nav{position:sticky;top:0;z-index:10;background:rgba(11,13,18,.8);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  .nav .wrap{display:flex;align-items:center;gap:1rem;height:62px}
+  .brand{display:flex;align-items:center;gap:.6rem;font-weight:800;letter-spacing:-.02em;color:var(--text)}
+  .brand .logo{font-size:1.4rem}
+  .nav nav{margin-left:auto;display:flex;gap:1.3rem}
+  .nav nav a{color:var(--muted);font-size:.92rem;font-weight:500}
+  .nav nav a:hover{color:var(--text);text-decoration:none}
+
+  /* hero */
+  .hero{position:relative;overflow:hidden;border-bottom:1px solid var(--line);
+    background:radial-gradient(80% 120% at 80% -20%,rgba(124,92,255,.20),transparent 55%),radial-gradient(60% 100% at 0% 120%,rgba(91,140,255,.16),transparent 55%),var(--bg)}
+  .hero .wrap{padding:clamp(3.5rem,8vw,6rem) clamp(1.1rem,4vw,2rem)}
+  .logo-xl{font-size:3rem;line-height:1;margin-bottom:1rem}
+  .hero h1{font-size:clamp(2rem,1.3rem+2.6vw,3.1rem);max-width:18ch}
+  .hero .tag{font-size:1.15rem;color:var(--muted);max-width:60ch;margin-top:.6rem}
+  .hero .cta{display:flex;gap:.7rem;flex-wrap:wrap;margin-top:1.6rem}
+  .btn{display:inline-flex;align-items:center;gap:.5rem;padding:.7rem 1.2rem;border-radius:10px;font-weight:600;font-size:.95rem;border:1px solid transparent}
+  .btn.primary{background:linear-gradient(90deg,var(--accent),var(--accent2));color:#fff}
+  .btn.ghost{border-color:var(--line);color:var(--text);background:var(--panel)}
+  .btn:hover{text-decoration:none;transform:translateY(-1px)}
+  .placeholder-note{margin-top:1.4rem;font-size:.8rem;color:var(--muted2)}
+
+  section{padding:clamp(2.6rem,6vw,4.5rem) 0}
+  .sec-head{margin-bottom:1.6rem}
+  .sec-head h2{font-size:clamp(1.4rem,1.1rem+1.4vw,2rem);margin-top:.4rem}
+
+  /* capability grid */
+  .caps{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem}
+  .cap{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:1.3rem}
+  .cap .ic{font-size:1.5rem}
+  .cap h3{font-size:1.05rem;margin:.6rem 0 .3rem}
+  .cap p{color:var(--muted);font-size:.92rem;margin:0}
+
+  /* projects */
+  .projects{display:grid;grid-template-columns:1fr;gap:1.1rem}
+  .pcard{background:linear-gradient(180deg,var(--panel),var(--panel2));border:1px solid var(--line);border-radius:var(--radius);padding:1.4rem 1.5rem;display:grid;grid-template-columns:1fr auto;gap:1rem;align-items:start;transition:border-color .2s,transform .2s}
+  .pcard:hover{border-color:#34406b;transform:translateY(-2px)}
+  .pcard .meta-cat{font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--accent)}
+  .pcard h3{font-size:1.35rem;margin:.3rem 0 .2rem}
+  .pcard .desc{color:var(--muted);margin:0 0 .8rem}
+  .badges{display:flex;flex-wrap:wrap;gap:.4rem}
+  .badge{display:inline-flex;align-items:center;gap:.35rem;font-size:.76rem;font-weight:600;padding:.28rem .6rem;border-radius:999px;border:1px solid var(--line);background:#0e1118;color:var(--muted)}
+  .badge.live{color:#ffd9a8;border-color:#5a3d18;background:#241a0e}
+  .badge.status{color:#9be4ad;border-color:#1f5a33;background:#0f1f16}
+  .badge.priv{color:#c7cdda;border-color:#3a4254;background:#161b25}
+  .badge.stack{color:#bcd0ff;border-color:#2a3a66;background:#0f1526}
+  .pcard .actions{display:flex;flex-direction:column;gap:.5rem;align-items:stretch;min-width:170px}
+  .pcard .actions a{justify-content:center}
+  .catalogue-note{margin-top:1.4rem;color:var(--muted);font-size:.95rem}
+
+  /* contact */
+  .contact{border-top:1px solid var(--line);background:var(--bg2)}
+  .contact .grid{display:flex;gap:1.4rem;flex-wrap:wrap}
+  .contact a{font-weight:600}
+  footer{border-top:1px solid var(--line);padding:1.6rem 0;color:var(--muted2);font-size:.85rem}
+
+  @media(max-width:820px){ .caps{grid-template-columns:repeat(2,1fr)} .pcard{grid-template-columns:1fr} .pcard .actions{flex-direction:row;flex-wrap:wrap} }
+  @media(max-width:480px){ .caps{grid-template-columns:1fr} }
+</style>
+</head>
+<body>
+
+<div class="nav">
+  <div class="wrap">
+    <span class="brand"><span class="logo">🤖</span> RanTechs</span>
+    <nav>
+      <a href="#capabilities">Capabilities</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+      <a href="https://rantechs.com">rantechs.com ↗</a>
+    </nav>
+  </div>
+</div>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="logo-xl">🤖</div>
+    <span class="kick">Imran Technologies Ltd</span>
+    <h1>Software that goes the distance.</h1>
+    <p class="tag">We build the layered systems that hold software together — built to start fast, scale steady, and run for the long haul. This is our portfolio of client work and engineering case studies.</p>
+    <div class="cta">
+      <a class="btn primary" href="#projects">View projects →</a>
+      <a class="btn ghost" href="#contact">Get in touch</a>
+    </div>
+    <p class="placeholder-note">🤖 and colours are temporary placeholders pending the official RanTechs brand identity.</p>
+  </div>
+</header>
+
+<section id="capabilities">
+  <div class="wrap">
+    <div class="sec-head"><span class="kick">What we do</span><h2>Four ways we help teams ship</h2></div>
+    <div class="caps">
+      <div class="cap"><div class="ic">🛠️</div><h3>Build</h3><p>Full-stack engineering for SaaS products, from prototype to scale.</p></div>
+      <div class="cap"><div class="ic">🚀</div><h3>Ship</h3><p>Our own products — opinionated and well-engineered.</p></div>
+      <div class="cap"><div class="ic">🏠</div><h3>Host</h3><p>Self-hosting and on-prem consultancy for teams that want control.</p></div>
+      <div class="cap"><div class="ic">🏃</div><h3>Adapt</h3><p>Agile teams that move with your priorities — your timezone and cadence.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="projects" style="background:var(--bg2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+  <div class="wrap">
+    <div class="sec-head"><span class="kick">Featured work</span><h2>Selected projects</h2></div>
+
+    <div class="projects">
+      <!-- PROJECT: manjuma-group -->
+      <article class="pcard">
+        <div>
+          <div class="meta-cat">Client Website</div>
+          <h3>MANJUMA GROUP</h3>
+          <p class="desc">Corporate website for a diversified Malaysian business group — fast, accessible, and search-ready, scoring a perfect 100/100/100/100 on Google Lighthouse.</p>
+          <div class="badges">
+            <span class="badge stack">Astro</span>
+            <span class="badge stack">TypeScript</span>
+            <span class="badge stack">AWS</span>
+            <span class="badge status">● Production</span>
+          </div>
+        </div>
+        <div class="actions">
+          <a class="btn primary" href="/projects/manjuma-group/">Case study →</a>
+          <a class="btn ghost" href="https://manjumagroup.com" target="_blank" rel="noopener">Live · CloudFront ↗</a>
+          <a class="btn ghost" href="https://github.com/rantechs/manjumagroup.com" target="_blank" rel="noopener" title="Private repository — accessible to the RanTechs team">🔒 Repo · Private</a>
+        </div>
+      </article>
+    </div>
+
+    <p class="catalogue-note">More projects are on the way — this showcase grows as the portfolio does.</p>
+  </div>
+</section>
+
+<section id="contact" class="contact">
+  <div class="wrap">
+    <div class="sec-head"><span class="kick">Get in touch</span><h2>Let's build something that lasts</h2></div>
+    <div class="grid">
+      <span>🌐 <a href="https://rantechs.com">rantechs.com</a></span>
+      <span>✉️ <a href="mailto:hello@rantechs.com">hello@rantechs.com</a></span>
+      <span class="muted">🇧🇩 Based in Dhaka, working everywhere</span>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    © <span id="yr">2026</span> Imran Technologies Ltd — RanTechs · <i>Built to run fast. Made to last a lifetime.</i>
+  </div>
+</footer>
+<script>document.getElementById('yr').textContent=new Date().getFullYear()</script>
+</body>
+</html>
